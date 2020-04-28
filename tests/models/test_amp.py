@@ -16,6 +16,8 @@ def test_amp_single_gpu(tmpdir, backend):
     """Make sure DP/DDP + AMP work."""
     tutils.reset_seed()
 
+    model = EvalModelTemplate(tutils.get_default_hparams())
+
     trainer = Trainer(
         default_root_dir=tmpdir,
         max_epochs=1,
